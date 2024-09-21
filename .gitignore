@@ -2,5 +2,7 @@ django/.venv
 __pycache__
 *.pyc
 *.sqlite3
+
 static
 public
+staticfiles
