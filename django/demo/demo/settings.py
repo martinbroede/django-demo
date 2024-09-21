@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "ag4cc8gwws0ccgc08ok84s8w.finnegan.dev"]
 
+CSRF_TRUSTED_ORIGINS = ["https://ag4cc8gwws0ccgc08ok84s8w.finnegan.dev"]
+
 # Application definition
 
 INSTALLED_APPS = [
