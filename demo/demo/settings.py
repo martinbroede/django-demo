@@ -49,7 +49,7 @@ if "runsslserver" in sys.argv:
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',  # position is important
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # position is important
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
