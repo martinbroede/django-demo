@@ -14,8 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from os import environ
-
+from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -27,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('logs/', include('django_log_lens.urls')),
     path('logs', lambda _: redirect('logs/view')),
+    path('version/', lambda _: HttpResponse(settings.VERSION)),
 ]
 
 
