@@ -23,8 +23,7 @@ from django.shortcuts import redirect
 from django.urls import include, path
 
 urlpatterns = [
-    path('', lambda _: HttpResponse(f'Hello World!\nSecret: {environ.get("secret", "none")}',
-                                    content_type='text/plain')),
+    path('', lambda _: redirect('admin/')),
     path('admin/', admin.site.urls),
     path('logs/', include('django_log_lens.urls')),
     path('logs', lambda _: redirect('logs/view')),

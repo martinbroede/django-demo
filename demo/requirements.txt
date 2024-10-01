@@ -1,4 +1,5 @@
 django
 django-log-lens
+django-sslserver-v2
 gunicorn
 whitenoise
