@@ -17,16 +17,17 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import include, path
+
+from .views import example
 
 urlpatterns = [
     path('', lambda _: redirect('admin/')),
     path('admin/', admin.site.urls),
     path('logs/', include('django_log_lens.urls')),
     path('logs', lambda _: redirect('logs/view')),
-    path('version/', lambda _: HttpResponse(settings.VERSION + "/" + str(settings.REF))),
+    path('example/', example),
 ]
 
 
