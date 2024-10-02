@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('logs/', include('django_log_lens.urls')),
     path('logs', lambda _: redirect('logs/view')),
-    path('version/', lambda _: HttpResponse(settings.VERSION)),
+    path('version/', lambda _: HttpResponse(settings.VERSION + "/" + str(settings.REF))),
 ]
 
 
