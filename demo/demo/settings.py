@@ -10,14 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 import random
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "0.1.3"
+VERSION = "0.1.4"
 REF = random.randint(100000, 999999)
 
 # Quick-start development settings - unsuitable for production
@@ -84,13 +86,28 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+
+database_url = os.environ.get('POSTGRES_URL', None)
+
+if database_url is None:
+    default_database = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+else:
+    database_url = urlparse(database_url)
+    default_database =  {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': database_url.path[1:],  # Remove leading slash
+        'USER': database_url.username,
+        'PASSWORD': database_url.password,
+        'HOST': database_url.hostname,
+        'PORT': database_url.port,
+    }
 
+DATABASES = {
+    'default': default_database
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

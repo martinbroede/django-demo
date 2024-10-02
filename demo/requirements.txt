@@ -3,4 +3,5 @@ django-log-lens
 django-sslserver-v2
 gevent
 gunicorn
+psycopg2-binary
 whitenoise
