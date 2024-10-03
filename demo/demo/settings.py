@@ -29,11 +29,11 @@ REF = random.randint(100000, 999999)
 SECRET_KEY = 'django-insecure-ng^zk=-hg&2%wptr2m**j^f#1-#c_hu76###0^=p^xxfyj(!dj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["django.finnegan.dev", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["django.finnegan.dev", "localhost", "127.0.0.1", "demo.everyminute.eu"]
 
-CSRF_TRUSTED_ORIGINS = ["https://django.finnegan.dev"]
+CSRF_TRUSTED_ORIGINS = ["https://django.finnegan.dev", "https://demo.everyminute.eu"]
 
 # Application definition
 
